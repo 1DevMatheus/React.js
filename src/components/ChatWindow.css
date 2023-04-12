@@ -46,15 +46,26 @@ align-items: center;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    overflow: hidden;
+    transition: all ease 0.3s;
 }
 .chatWindow-Body{
     flex: 1;
+    padding: 20px 30px;
     overflow-y: auto;
     background-color: #e5ddd5;
     background-size: cover;
     background-position: center;
     background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
 }
+.chatWindow-Body::-webkit-scrollbar{
+    width: 6px;
+    height: 6px;
+  }
+  
+.chatWindow-Body::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 
 .chatWindow-Footer{
     display: flex;
@@ -92,10 +103,15 @@ align-items: center;
 
 .EmojiPickerReact.epr-main{
     width: auto !important;
-    height: 320px !important;
     background: none;
 }
 
 .EmojiPickerReact li.epr-emoji-category>.epr-emoji-category-label{
     background: none;
+}
+
+.chatWindow-EmojiArea{
+    height: 200px;
+    overflow-y: hidden;
+    transition: all ease 0.3s;
 }

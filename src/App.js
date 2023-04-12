@@ -3,7 +3,8 @@ import "./App.css";
 
 import ChatListItem from "./components/ChatListItem";
 import ChatIntro from './components/ChatIntro';
-import ChatWindow from './components/ChatWindow'
+import ChatWindow from './components/ChatWindow';
+import NewChat from './components/NewChat'
 
 import DonutLargeIcon from "@mui/icons-material/DonutLarge";
 import ChatIcon from "@mui/icons-material/Chat";
@@ -21,16 +22,16 @@ export default () => {
     {chatId: 4, title: 'fulano de tal', image: 'https://www.w3schools.com/w3images/avatar2.png'}
 
   ]);
-  const [activeChat, setActiveChat] = useState({})
-
+  const [activeChat, setActiveChat] = useState({});
+  const [user, setUser] = useState({id: 1234,name: 'matheus oliveira',avatar: 'https://github.com/1DevMatheus.png'});
   return (
     <div className="app-window">
       <div className="sidebar">
+       <NewChat />
         <header>
           <img
             className="header-avatar"
-            src="https://www.w3schools.com/w3images/avatar2.png"
-            alt=""
+            src={user.avatar}
           />
           <div className="header-buttons">
             <div className="header-btn">
@@ -71,7 +72,9 @@ export default () => {
       <div className="contentarea">
         
         {activeChat.chatId !== undefined &&
-          <ChatWindow />
+          <ChatWindow 
+          user={user}
+          />
         }
         {activeChat.chatId === undefined &&
           <ChatIntro />
